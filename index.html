@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  
+  <head>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="bleLED.js"></script>
+    <title>Web Bluetooth LED</title>
+  </head>
+  
+  <body>
+    <button onClick='connect()'>connect</button>
+    <button onClick='disconnect()'>disconnect</button>
+    
+	<p>&nbsp;</p>
+	<button 
+    onClick='turnIntakeOn()'
+    id='intakeOn'
+    style = "background-color: green;"
+    >intake on
+  </button>
+	
+  <button 
+    onClick='turnIntakeOff()'
+    id='intakeOff'
+    style = "background-color: red;"
+    >intake off
+  </button>
+  </body>
+
+  <!-- 
+    000 - 127 reverse
+    128 - 255 forward
+
+    0 full reverse
+    63 half reverse
+    
+    128 none
+
+    191 half forward
+    255 full forward
+  -->
+  <p>&nbsp;</p>
+  <button 
+    onmouseover='drive(191, 191, 000)'
+    onmousedown='drive(255, 255, 000)'
+    onmouseup='drive(191, 191, 000)'
+    onmouseout='drive(127, 127, 000)'
+    id = 'forward'
+    style = "background-color: green;"
+    >forward
+  </button>
+
+  <button 
+    onmouseover='drive(63, 191, 000)'
+    onmousedown='drive(0, 255, 000)'
+    onmouseup='drive(63, 191, 000)'
+    onmouseout='drive(127, 127, 000)'
+    style = "background-color: green;"
+    id='left'
+    >turn left
+  </button>
+
+  <button 
+    onmouseover='drive(191, 63, 000)'
+    onmousedown='drive(255, 0, 000)'
+    onmouseup='drive(191, 63, 000)'
+    onmouseout='drive(127, 127, 000)'
+    style = "background-color: green;"
+    id='right'
+    >turn right
+  </button>
+
+  </body>
+
+</html>
