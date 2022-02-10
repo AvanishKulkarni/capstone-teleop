@@ -8,13 +8,16 @@
                 "C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/7.3.0/include",
                 "C:/Program Files (x86)/Arduino/hardware/arduino/avr/cores/arduino",
                 "C:/Program Files (x86)/Arduino/hardware/arduino/avr/variants/standard",
-                "C:/Program Files (x86)/Arduino\\",
-                "C:/Users/bigfa/AppData/Local/Arduino15/packages/SparkFun/tools/arm-none-eabi-gcc/8-2018-q4-major/lib/gcc/arm-none-eabi/8.2.1/include"
+                "C:/Program Files (x86)/Arduino",
+                "C:/Users/bigfa/Documents/Arduino/libraries",
+                "C:/Users/bigfa/Documents/Arduino/libraries/ArduinoBLE/src",
+                "C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/include"
             ],
             "defines": [
                 "_DEBUG",
                 "UNICODE",
-                "_UNICODE"
+                "_UNICODE",
+                "USBCON"
             ],
             "windowsSdkVersion": "10.0.19041.0",
             "compilerPath": "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.29.30133/bin/Hostx64/x64/cl.exe",
