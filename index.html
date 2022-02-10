@@ -3,7 +3,7 @@
   
   <head>
 	<meta charset="utf-8">
-	<script type="text/javascript" src="bleLED.js"></script>
+	<script type="text/javascript" src="bleMotor.js"></script>
     <title>Web Bluetooth LED</title>
   </head>
   
@@ -46,7 +46,6 @@
     onmouseup='drive(191, 191, 000)'
     onmouseout='drive(127, 127, 000)'
     id = 'forward'
-    style = "background-color: green;"
     >forward
   </button>
 
@@ -55,7 +54,6 @@
     onmousedown='drive(0, 255, 000)'
     onmouseup='drive(63, 191, 000)'
     onmouseout='drive(127, 127, 000)'
-    style = "background-color: green;"
     id='left'
     >turn left
   </button>
@@ -65,7 +63,6 @@
     onmousedown='drive(255, 0, 000)'
     onmouseup='drive(191, 63, 000)'
     onmouseout='drive(127, 127, 000)'
-    style = "background-color: green;"
     id='right'
     >turn right
   </button>
