@@ -2,5 +2,7 @@
     "configuration": "svl_baud=460800,loader=option_svl",
     "board": "SparkFun:apollo3:sfe_artemis_atp",
     "sketch": "Teleop\\Teleop.ino",
-    "output": "../ArduinoOutput"
+    "output": "../ArduinoOutput",
+    "programmer": "SparkFun:asb_programmer",
+    "port": "COM3"
 }

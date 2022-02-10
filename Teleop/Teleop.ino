@@ -149,17 +149,17 @@ void loop() {
 // Runs left motor
 void forwardLeftMotor(byte speed) {
 
-  byte shiftedSpeed = speed - 127;
+  byte shiftedSpeed = 2*(speed - 127);
 
   Serial.print("L Speed: ");
   Serial.println(shiftedSpeed);
 
   if (shiftedSpeed > 0) {
-    analogWrite(leftMotorPin1, shiftedSpeed * 2);
+    analogWrite(leftMotorPin1, shiftedSpeed);
     digitalWrite(leftMotorPin2, LOW);
   } else if (shiftedSpeed < 0) {
     digitalWrite(leftMotorPin1, LOW);
-    analogWrite(leftMotorPin2, shiftedSpeed * -2);
+    analogWrite(leftMotorPin2, shiftedSpeed * -1);
   } else {
     digitalWrite(leftMotorPin1, LOW);
     digitalWrite(leftMotorPin2, LOW);
@@ -169,17 +169,17 @@ void forwardLeftMotor(byte speed) {
 // Runs right motor
 void forwardRightMotor(byte speed) {
   
-  byte shiftedSpeed = speed - 127;
+  byte shiftedSpeed = 2*(speed - 127);
 
   Serial.print("R Speed: ");
   Serial.println(shiftedSpeed);
   
   if (shiftedSpeed > 0) {
-    analogWrite(rightMotorPin1, shiftedSpeed * 2);
+    analogWrite(rightMotorPin1, shiftedSpeed);
     digitalWrite(rightMotorPin2, LOW);
   } else if (shiftedSpeed < 0) {
     digitalWrite(rightMotorPin1, LOW);
-    analogWrite(rightMotorPin2, shiftedSpeed * -2);
+    analogWrite(rightMotorPin2, shiftedSpeed * -1);
   } else {
     digitalWrite(rightMotorPin1, LOW);
     digitalWrite(rightMotorPin2, LOW);

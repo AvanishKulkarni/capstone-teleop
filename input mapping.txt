@@ -1,0 +1,13 @@
+0 - 255
+255 values
+discard 255 for 254 values
+subtract 127 to get
+
+-127 to 0 to +127
+
+name		motor	shift	actual
+full reverse	-254	-127	0
+half reverse	-126	-63	64
+stop motors	0	0	127
+half forward	126	63	190
+full forward	254	127	254

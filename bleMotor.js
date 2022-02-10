@@ -111,7 +111,7 @@ function drive(leftMotor, rightMotor, intakeMotor) {
     // bitwise operators to stack each byte into a 4 byte var
     var uint32 = new Uint32Array([encoded[0] | encoded[1] << 8 | encoded[2] << 16 | encoded[3] << 24]);
 
-    console.log("L: " + encoded[1] + "\tR:" + encoded[2] + "\tI: " + encoded[3]);
+    console.log("L: " + 2*(encoded[1] - 127) + "\tR:" + 2*(encoded[2] - 127) + "\tI: " + encoded[3]);
 
     // sends the 4 byte var as an array of Uint32 with only one Uint32
     try {
