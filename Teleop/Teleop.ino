@@ -33,12 +33,12 @@ BLELongCharacteristic motorCharacteristic("7e86a021-04b9-4168-ae80-863644769296"
 BLEDescriptor motorDescriptor("2901", "Encoded Motor Control");
 
 // Motor Left
-const int leftMotorPin1  = 13;  // Pin 15 of L293
-const int leftMotorPin2  = 12;  // Pin 10 of L293
+const int leftMotorPin1  = 12;
+const int leftMotorPin2  = 13;
 
 // Motor Right
-const int rightMotorPin1  = 28; // Pin  7 of L293
-const int rightMotorPin2  = 27;  // Pin  2 of L293
+const int rightMotorPin1  = 23;
+const int rightMotorPin2  = 22;
 
 // Motor Intake
 const int intakeMotorPin1 = 18;
@@ -116,6 +116,18 @@ void loop() {
         byte RM = encodedValue >> 16;
         byte IM = encodedValue >> 24; 
 
+        Serial.print("LM fixed: ");
+        int LMf = LM;
+        int LMff = (LMf - 127)*2;
+        Serial.println(LMff);
+        
+        Serial.print("RM fixed: ");
+        int RMf = RM;
+        int RMff = (RMf - 127)*2;
+        Serial.println(RMff);
+  
+        
+
 
         /*
           How motor control values are encoded
@@ -133,8 +145,8 @@ void loop() {
         */
         
         // passes unshifted values to the functions
-        forwardLeftMotor(LM);
-        forwardRightMotor(RM);
+        forwardLeftMotor(LMff);
+        forwardRightMotor(RMff);
         runIntake(IM);
         
       }
@@ -147,48 +159,45 @@ void loop() {
 }
 
 // Runs left motor
-void forwardLeftMotor(byte speed) {
+void forwardLeftMotor(int speed) {
 
-  byte shiftedSpeed = 2*(speed - 127);
-
-  Serial.print("L Speed: ");
-  Serial.println(shiftedSpeed);
-
-  if (shiftedSpeed > 0) {
-    analogWrite(leftMotorPin1, shiftedSpeed);
+  if (speed > 0) {
+    Serial.println("L forward");
+    digitalWrite(leftMotorPin1, HIGH);
     digitalWrite(leftMotorPin2, LOW);
-  } else if (shiftedSpeed < 0) {
+  } else if (speed < 0) {
+    int speedr = speed * -1;
+    Serial.println("L reverse");
     digitalWrite(leftMotorPin1, LOW);
-    analogWrite(leftMotorPin2, shiftedSpeed * -1);
+    digitalWrite(leftMotorPin2, HIGH);
   } else {
+    Serial.println("L stop");
     digitalWrite(leftMotorPin1, LOW);
     digitalWrite(leftMotorPin2, LOW);
   }
 }
 
 // Runs right motor
-void forwardRightMotor(byte speed) {
+void forwardRightMotor(int speed) {
   
-  byte shiftedSpeed = 2*(speed - 127);
-
-  Serial.print("R Speed: ");
-  Serial.println(shiftedSpeed);
-  
-  if (shiftedSpeed > 0) {
-    analogWrite(rightMotorPin1, shiftedSpeed);
+  if (speed > 0) {
+    Serial.println("R forward");
+    digitalWrite(rightMotorPin1, HIGH);
     digitalWrite(rightMotorPin2, LOW);
-  } else if (shiftedSpeed < 0) {
+  } else if (speed < 0) {
+    Serial.println("R reverse");
+    int speedr = speed * -1;
     digitalWrite(rightMotorPin1, LOW);
-    analogWrite(rightMotorPin2, shiftedSpeed * -1);
+    digitalWrite(rightMotorPin2, HIGH);
   } else {
+    Serial.println("R stop");
     digitalWrite(rightMotorPin1, LOW);
     digitalWrite(rightMotorPin2, LOW);
   }
-
 }
 
 // Runs intake motor 
 void runIntake(byte speed) {
-  analogWrite(intakeMotorPin1, speed);
+  digitalWrite(intakeMotorPin1, HIGH);
   digitalWrite(intakeMotorPin2, LOW);
 }

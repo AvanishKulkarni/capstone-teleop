@@ -29,10 +29,8 @@
       <div class="cell">
         <button 
           class = "big_btn"
-          onmouseover='drive(190, 190, 000)'
-          onmousedown='drive(254, 254, 000)'
-          onmouseup='drive(190, 190, 000)'
-          onmouseout='drive(127, 127, 000)'
+          onmousedown='drive(0xFE, 0xFE, 000)'
+          onmouseup='drive(0x7F, 0x7F, 000)'
           id = 'forward'
           >forward
         </button>
@@ -46,10 +44,8 @@
       <div class="cell">
         <button 
           class = "big_btn"
-          onmouseover='drive(64, 190, 000)'
-          onmousedown='drive(0, 254, 000)'
-          onmouseup='drive(64, 190, 000)'
-          onmouseout='drive(127, 127, 000)'
+          onmousedown='drive(0x00, 0xFE, 0x00)'
+          onmouseup='drive(0x7F, 0x7F, 0x00)'
           id='left'
           >turn left
         </button>
@@ -58,10 +54,8 @@
       <div class="cell">
         <button
           class = "big_btn" 
-          onmouseover='drive(190, 64, 000)'
-          onmousedown='drive(254, 0, 000)'
-          onmouseup='drive(190, 64, 000)'
-          onmouseout='drive(127, 127, 000)'
+          onmousedown='drive(0xFE, 0x00, 0x00)'
+          onmouseup='drive(0x7F, 0x7F, 0x00)'
           id='right'
           >turn right
       </button>
@@ -77,10 +71,8 @@
       <div class="cell">
         <button 
           class = "big_btn"
-          onmouseover='drive(64, 64, 000)'
-          onmousedown='drive(0, 0, 000)'
-          onmouseup='drive(64, 64, 000)'
-          onmouseout='drive(127, 127, 000)'
+          onmousedown='drive(0x00, 0x00, 0x00)'
+          onmouseup='drive(0x7F, 0x7F, 0x00)'
           id='reverse'
           >reverse
         </button>
