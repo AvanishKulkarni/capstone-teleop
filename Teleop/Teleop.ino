@@ -57,9 +57,9 @@ void setup() {
 
   // Begins serial output, make sure to set the 
   // baud rate to 9600 to see it in serial monitor
-  Serial.begin(9600);
+  Serial.begin(115200); // 9600
   while (!Serial);
-
+ 
   // begin initialization
   if (!BLE.begin()) {
     Serial.println("starting BLE failed!");
@@ -197,7 +197,7 @@ void forwardRightMotor(int speed) {
 }
 
 // Runs intake motor 
-void runIntake(byte speed) {
-  digitalWrite(intakeMotorPin1, HIGH);
+void runIntake(byte IM) {
+  digitalWrite(intakeMotorPin1, IM);
   digitalWrite(intakeMotorPin2, LOW);
 }

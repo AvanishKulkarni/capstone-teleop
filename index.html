@@ -13,7 +13,12 @@
       RC Control
     </h1>
     <p>
-      Connect to BasedLED
+      Connect to "BasedLED". This should return a "BluetoothRemoteGATTCharacteristic" in the console in a few seconds.
+      If it does not, then the connection failed. Try disconnecting and reconnecting. If that does't work, power cycle the Arduino. 
+    </p>
+    <p>
+      The intake only refreshes when running and robot movement commands. So if you want to turn it on/off, you need to move the robot. 
+      Intake speed can be changed in bleMotor.js
     </p>
   </body>
 
@@ -24,7 +29,7 @@
         <button 
           class = "big_btn" 
           onClick='connect()'
-          >connect</button>
+          >Connect</button>
       </div>
       <div class="cell">
         <button 
@@ -32,14 +37,14 @@
           onmousedown='drive(0xFE, 0xFE, 000)'
           onmouseup='drive(0x7F, 0x7F, 000)'
           id = 'forward'
-          >forward
+          >Forward
         </button>
       </div>
       <div class="cell">
         <button 
           class = "big_btn"  
           onClick='disconnect()'
-          >disconnect</button>
+          >Disconnect</button>
       </div>
       <div class="cell">
         <button 
@@ -47,7 +52,7 @@
           onmousedown='drive(0x00, 0xFE, 0x00)'
           onmouseup='drive(0x7F, 0x7F, 0x00)'
           id='left'
-          >turn left
+          >Left
         </button>
       </div>
       <div class="cell"></div>
@@ -57,7 +62,7 @@
           onmousedown='drive(0xFE, 0x00, 0x00)'
           onmouseup='drive(0x7F, 0x7F, 0x00)'
           id='right'
-          >turn right
+          >Right
       </button>
       </div>
       <div class="cell">
@@ -65,7 +70,7 @@
           class = "big_btn" 
           onClick='turnIntakeOn()'
           id='intakeOn'
-          >intake on
+          >Intake On
         </button>
       </div>
       <div class="cell">
@@ -74,7 +79,7 @@
           onmousedown='drive(0x00, 0x00, 0x00)'
           onmouseup='drive(0x7F, 0x7F, 0x00)'
           id='reverse'
-          >reverse
+          >Reverse
         </button>
       </div>
       <div class="cell">
@@ -82,7 +87,7 @@
           class = "big_btn"
           onClick='turnIntakeOff()'
           id='intakeOff'
-          >intake off
+          >Intake Off
         </button>
       </div>
     </div>

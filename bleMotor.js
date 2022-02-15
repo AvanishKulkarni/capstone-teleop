@@ -6,6 +6,74 @@ const MOTOR_CHARACTERISTIC = "7e86a021-04b9-4168-ae80-863644769296";
 let motorCharacteristic;
 let myDevice;
 
+var INTAKE_SPEED = 255 // 0 - 255
+
+document.addEventListener('keydown', function (event) {
+  if (event.defaultPrevented) {
+    return;
+  }
+
+  switch (event.keyCode) {
+    case 87:
+      // W key
+      console.log("W");
+      drive(0xFE, 0xFE, 000);
+      break;
+    case 83:
+      // S key
+      console.log("S");
+      drive(0x00, 0x00, 000);
+      break;
+    case 65:
+      // A key
+      console.log("A");
+      drive(0x00, 0xFE, 0x00);
+      break;
+    case 68:
+      // D key
+      console.log("D");
+      drive(0xFE, 0x00, 0x00);
+      break;
+    default:
+      break;
+  }
+
+  event.preventDefault();
+}, true);
+
+document.addEventListener('keyup', function (event) {
+  if (event.defaultPrevented) {
+    return;
+  }
+
+  switch (event.keyCode) {
+    case 87:
+      // W key
+      console.log("no W");
+      drive(0x7F, 0x7F, 000);
+      break;
+    case 83:
+      // S key
+      console.log("no S");
+      drive(0x7F, 0x7F, 000);
+      break;
+    case 65:
+      // A key
+      console.log("no A");
+      drive(0x7F, 0x7F, 000);
+      break;
+    case 68:
+      // D key
+      console.log("no D");
+      drive(0x7F, 0x7F, 000);
+      break;
+    default:
+      break;
+  }
+
+  event.preventDefault();
+}, true);
+
 /*
 
 window.addEventListener("gamepadconnected", function(e) {
@@ -101,7 +169,7 @@ function drive(leftMotor, rightMotor, intakeMotor) {
     
     // checks if intake boolean is true, if it is sets intake to on
     if (intakeOn) {
-      encoded[3] = 0xFF; // aka 255
+      encoded[3] = INTAKE_SPEED; // aka 255
     } else {
       encoded[3] = 0x00; // aka 0
     }
