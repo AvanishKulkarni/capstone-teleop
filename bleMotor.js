@@ -13,23 +13,23 @@ document.addEventListener('keydown', function (event) {
     return;
   }
 
-  switch (event.keyCode) {
-    case 87:
+  switch (event.code) {
+    case "KeyW":
       // W key
       console.log("W");
       drive(0xFE, 0xFE, 000);
       break;
-    case 83:
+    case "KeyS":
       // S key
       console.log("S");
       drive(0x00, 0x00, 000);
       break;
-    case 65:
+    case "KeyA":
       // A key
       console.log("A");
       drive(0x00, 0xFE, 0x00);
       break;
-    case 68:
+    case "KeyD":
       // D key
       console.log("D");
       drive(0xFE, 0x00, 0x00);
@@ -46,23 +46,23 @@ document.addEventListener('keyup', function (event) {
     return;
   }
 
-  switch (event.keyCode) {
-    case 87:
+  switch (event.code) {
+    case "KeyW":
       // W key
       console.log("no W");
       drive(0x7F, 0x7F, 000);
       break;
-    case 83:
+    case "KeyS":
       // S key
       console.log("no S");
       drive(0x7F, 0x7F, 000);
       break;
-    case 65:
+    case "KeyA":
       // A key
       console.log("no A");
       drive(0x7F, 0x7F, 000);
       break;
-    case 68:
+    case "KeyD":
       // D key
       console.log("no D");
       drive(0x7F, 0x7F, 000);
@@ -74,36 +74,51 @@ document.addEventListener('keyup', function (event) {
   event.preventDefault();
 }, true);
 
-/*
 
-window.addEventListener("gamepadconnected", function(e) {
-  console.log("Gamepad connected at index: " +  
-    e.gamepad.index +
-    " buttons: " + e.gamepad.buttons.length + " axes: " + e.gamepad.axes.length
-  );
-});
 
-window.addEventListener("gamepaddisconnected", function(e) {
-  console.log("Gamepad disconnected from index %d: %s",
-    e.gamepad.index, e.gamepad.id
-  );
-});
 
-var gamepads = {};
-function gamepadHandler(event, connecting) {
-  var gamepad = event.gamepad;
+// window.addEventListener("gamepadconnected", function(e) {
+//   console.log("Gamepad connected at index: " +  
+//     e.gamepad.index + " buttons: " + e.gamepad.buttons.length + " axes: " + e.gamepad.axes.length
+//   );
+// });
 
-  if (connecting) {
-    gamepads[gamepad.index] = gamepad;
-  } else {
-    delete gamepads[gamepad.index];
-  }
-}
+// window.addEventListener("gamepaddisconnected", function(e) {
+//   console.log("Gamepad disconnected",
+//     e.gamepad.index, e.gamepad.id
+//   );
+// });
 
-window.addEventListener("gamepadconnected", function(e) { gamepadHandler(e, true); }, false);
-window.addEventListener("gamepaddisconnected", function(e) { gamepadHandler(e, false); }, false);
+// var gamepads = {};
+// var interval;
+// function gamepadHandler(event, connecting) {
+//   var gamepad = event.gamepad;
 
-*/
+//   if (connecting) {
+//     gamepads[gamepad.index] = gamepad;
+//   } else {
+//     delete gamepads[gamepad.index];
+//   }
+// }
+
+// window.addEventListener("gamepadconnected", function(e) { gamepadHandler(e, true); }, false);
+// window.addEventListener("gamepaddisconnected", function(e) { gamepadHandler(e, false); }, false);
+
+// var interval;
+
+// if (gamepads[0]) {
+//   interval = setInterval(pollGamepad(), 1000);
+// } else {
+//   clearInterval(interval);
+// }
+
+// function pollGamepad() {
+//   console.log(gamepads[0]);
+//   console.log("gamepadsssss");
+// }
+
+
+
 
 /*
   Not sure how this works, copied from the LED control example files
