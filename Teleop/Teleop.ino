@@ -57,7 +57,7 @@ void setup() {
 
   // Begins serial output, make sure to set the 
   // baud rate to 9600 to see it in serial monitor
-  Serial.begin(115200); // 9600
+  Serial.begin(921600); // 9600
   while (!Serial);
  
   // begin initialization

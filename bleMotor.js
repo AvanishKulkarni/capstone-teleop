@@ -34,6 +34,11 @@ document.addEventListener('keydown', function (event) {
       console.log("D");
       drive(0xFE, 0x00, 0x00);
       break;
+    case "Space":
+      // Spacebar
+      console.log("Space");
+      toggleIntake();
+      break;
     default:
       break;
   }
@@ -226,6 +231,18 @@ function turnIntakeOn() {
     console.log("Intake is already running");
   }
   
+}
+
+function toggleIntake() {
+  if (!intakeOn) {
+    intakeOn = true; console.log("Intake on");
+    document.getElementById("intakeOn").style.background = 'red';
+    document.getElementById("intakeOff").style.background = 'green';
+  } else {
+    intakeOn = false; console.log("Intake off");
+    document.getElementById("intakeOff").style.background = 'red';
+    document.getElementById("intakeOn").style.background = 'green';
+  }
 }
 
 // and turns it off
